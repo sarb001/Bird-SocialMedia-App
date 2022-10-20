@@ -1,8 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {BiArrowBack} from 'react-icons/bi';
+import Datapost from './Datapost';
 
 
- function Middlepart() {
+ function Middlepart() 
+ {
+
+    const [Task,setTask]= useState("");
+    const [oldtodo,setoldtodo] = useState([])       
+
+
+   function handlechange(e)
+   {
+     const first = e.target.value;
+     setTask(first);
+   }
+
+   function getTweet(item)
+   {
+        return  [...item,oldtodo];
+   }
+
+
   return (      
     <div id = "middlepart-data" style = {{borderRight:'inset'}} >
 
@@ -12,9 +31,19 @@ import {BiArrowBack} from 'react-icons/bi';
             </div>
 
             <div className = "input-bar-data">
-                 <span> <img src = "/delete.jpg"  style = {{width:'8%'}} /> </span>
-                    <input type = "text" />
+                  <span> <img src = "/delete.jpg"  style = {{width:'8%'}} /> </span>
+                    <input type = "text" id = "input-data"  value = {Task} onChange = {handlechange} />
+
+                        <ul>
+                            <li> First </li>
+                            <li> First 11 2 </li>
+                        </ul>
+
+                        <button  onClick={getTweet}> Tweet11 </button>
+                  
             </div>
+
+
 
     </div>
   )
