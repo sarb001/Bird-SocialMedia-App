@@ -1,6 +1,6 @@
 .container
 {
-  background-color: burlywood;
+  background-color: rgb(106, 77, 77);
   display:grid;
   grid-template-columns: 1fr 500px 1fr;
   margin: 0% 10%;

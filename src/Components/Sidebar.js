@@ -6,13 +6,13 @@ import {FiMessageCircle} from 'react-icons/fi';
 import {FaHashtag} from 'react-icons/fa'    ;
 import {BsFillBookmarkFill ,BsPersonFill } from 'react-icons/bs';
 import {CgMoreO} from 'react-icons/cg';
-
 import  './Sidebar.css';
 
  function Sidebar() {
   return (
     <div id = "sidebar-data">
-           <span id = "twitter-logo"> <BsTwitter /> </span>
+    
+          <span id = "twitter-logo" > <BsTwitter /> </span>
            <div className="links">
              <ul>
                 <li> <a href = "#">   <AiFillHome /> Home  </a>  </li>
@@ -24,8 +24,12 @@ import  './Sidebar.css';
 
                  <li> <a href = "#"> <BsPersonFill /> Profile   </a>   </li>
                 <li> <a href = "#">  <CgMoreO /> More  </a>  </li>
+                
              </ul>
-             <button> Tweet </button>
+             <div style = {{paddingLeft:'15%'}}>
+                <button id = "tweet-btn"> Tweet </button>
+             </div>
+             
            </div>
 
            <div className="profile">
