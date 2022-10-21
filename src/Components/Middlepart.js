@@ -10,12 +10,20 @@ import './Middlepart.css';
   const [task,setask] = useState(""); 
 
     function handleclick()
-    {
+    {   
+
         setodo(oldata => {
             return [...oldata,task];
         })
         setask('');
     }
+
+    const addnote = () =>
+    {
+
+    }
+
+
 
   return (      
 
@@ -42,10 +50,7 @@ import './Middlepart.css';
                     </div>
              </div>
 
-
-
-              <Datapost  
-                todo = {todo} 
+              <Datapost  todo = {todo} 
                 username = "Sarbingh"
                 newusername = "@sarbsingh"
                 image = "/image22.jpg"
