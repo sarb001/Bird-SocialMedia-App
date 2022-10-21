@@ -1,20 +1,41 @@
-// import React from 'react'
+import React from 'react'
+import {GoComment} from 'react-icons/go';
+import {FcLike,FcShare} from 'react-icons/fc';
 
-//  function Datapost() {
-//   return (
-//     <div id = "post-data">
-//          <span> <img src = ""  /> </span>
-//          <div>  Archie </div>
-//          <span> @archieexcc </span>
-//          <p> Lorem ipsum dolor sit amet consectetur, 
-//             adipisicing elit. Commodi repellendus officia 
-//             sequi unde vitae quae laboriosam atque 
-//             sit culpa error animi quo, in aperiam, 
-//             dolorum nesciunt earum, facilis voluptatem
-//              veritatis inventore corporis ut
-//               obcaecati doloribus.
-//          </p>
-//     </div>
-//   )
-// }
-// export default Datapost
+import {BiRepost} from 'react-icons/bi';
+
+ function Datapost({todo,username,newusername,image,addnote}) { 
+  return (
+    <div>
+        <div className='post-data' style = {{borderBottom:'inset'}}>
+                    <div className = "input-bar" style = {{display:'grid',gridTemplateColumns:'80px 1fr',marginLeft:'5%',marginRight:'5%'}}>
+                                <div style = {{paddingTop:'4%'}}> <img src = {image}  style = {{width:'60%',borderRadius:'50px',height:'6vh'}}/>  
+                               
+                                </div>
+                                
+                                 <div>
+                                        <div id = "twitter-name" style = {{display:'flex'}}>
+                                                <div id = "username">  {username} </div>
+                                                <div id = "new-username">  {newusername} </div>
+                                        </div>
+
+
+                                        <div style = {{fontSize:'20px',fontWeight:'700'}}>
+                                                { todo.map((item) =>{ 
+                                                return <span> {item} </span>
+                                                })}
+                                        </div>
+                                        <div id = "social-links" style = {{display:'grid',gridTemplateColumns:'1fr 1fr 1fr 1fr'}}>
+                                            <span>  <GoComment/></span>   
+                                            <span>  < BiRepost/></span>  
+                                            <span> < FcLike/></span>  
+                                            <span>  <FcShare/> </span>     
+                                        </div>
+                                 </div>
+                        
+                    </div>
+              </div> 
+    </div>
+  )
+}
+export default Datapost
