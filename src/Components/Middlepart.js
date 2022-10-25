@@ -9,21 +9,20 @@ import './Middlepart.css';
   const [todo,setodo] = useState([]);   
   const [task,setask] = useState(""); 
 
-    function handleclick()
-    {   
+    // function handleclick()
+    // {  
+    //     setodo(oldata => {
+    //         return [...oldata,task];
+    //     })
+    //     setask('');
+    // }
 
-        setodo(oldata => {
-            return [...oldata,task];
-        })
+     function handleclick()
+    {  
+        setodo([ ...todo, task])
+        console.log(todo);
         setask('');
     }
-
-    const addnote = () =>
-    {
-
-    }
-
-
 
   return (      
 
@@ -50,18 +49,13 @@ import './Middlepart.css';
                     </div>
              </div>
 
-              <Datapost  todo = {todo} 
-                username = "Sarbingh"
-                newusername = "@sarbsingh"
-                image = "/image22.jpg"
+              <Datapost 
+                 todo = {todo} 
+                 username = "Sarbingh"
+                 newusername = "@sarbsingh"
+                 image = "/image22.jpg"
+                 handleclick = {handleclick}
               />     
-
-            {/* <Datapost  todo = {todo} 
-               username = "Arshdeepingh"
-               newusername = "@arshdeep"
-               image = "/image1.jpg"
-              />    */}
-
 
     </div>
   )

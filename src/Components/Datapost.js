@@ -4,7 +4,7 @@ import {FcLike,FcShare} from 'react-icons/fc';
 
 import {BiRepost} from 'react-icons/bi';
 
- function Datapost({todo,username,newusername,image,addnote}) { 
+ function Datapost({todo,username,newusername,image,handleclick}) { 
   return (
     <div>
         <div className='post-data' style = {{borderBottom:'inset'}}>
@@ -15,15 +15,13 @@ import {BiRepost} from 'react-icons/bi';
                                 
                                  <div>
                                         <div id = "twitter-name" style = {{display:'flex'}}>
-                                                <div id = "username">  {username} </div>
+                                                <div id = "username">      {username} </div>
                                                 <div id = "new-username">  {newusername} </div>
                                         </div>
 
 
                                         <div style = {{fontSize:'20px',fontWeight:'700'}}>
-                                                { todo.map((item) =>{ 
-                                                return <span> {item} </span>
-                                                })}
+                                                { handleclick }
                                         </div>
                                         <div id = "social-links" style = {{display:'grid',gridTemplateColumns:'1fr 1fr 1fr 1fr'}}>
                                             <span>  <GoComment/></span>   
