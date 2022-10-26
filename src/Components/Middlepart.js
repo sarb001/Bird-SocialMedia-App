@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import {BiArrowBack,BiRepost} from 'react-icons/bi';
 import Datapost from './Datapost';
-import {FcLike,FcShare} from 'react-icons/fc';
 import './Middlepart.css';
 
  function Middlepart() 
@@ -9,18 +8,11 @@ import './Middlepart.css';
   const [todo,setodo] = useState([]);   
   const [task,setask] = useState(""); 
 
-    // function handleclick()
-    // {  
-    //     setodo(oldata => {
-    //         return [...oldata,task];
-    //     })
-    //     setask('');
-    // }
-
-     function handleclick()
+  
+     function handleclick()      
     {  
-        setodo([ ...todo, task])
-        console.log(todo);
+        setodo(() => { return task; })       
+        console.log(todo)
         setask('');
     }
 
@@ -30,7 +22,7 @@ import './Middlepart.css';
             <div className="top-bar" style = {{fontSize:'26px',color:'white',height:'6vh',backgroundColor:'black'}}>
                     <span> <BiArrowBack /> </span>
                     <span> Thread </span>
-            </div>
+            </div> 
 
              <div id = "component-main" style = {{borderBottom:'inset'}}>
                     <div className = "input-bar-data" style = {{display:'grid',gridTemplateColumns:'80px 1fr',marginLeft:'5%',marginRight:'5%'}}>
@@ -45,17 +37,15 @@ import './Middlepart.css';
                     </div>
 
                     <div style = {{textAlign:'center'}}>
-                      <button id = "btn-tweet" onClick = {handleclick}> Tweet </button>
-                    </div>
+                      <button id = "btn-tweet" onClick = {handleclick}>  Tweet </button>
+                    </div> 
              </div>
 
               <Datapost 
-                 todo = {todo} 
-                 username = "Sarbingh"
-                 newusername = "@sarbsingh"
-                 image = "/image22.jpg"
-                 handleclick = {handleclick}
-              />     
+                        todo   = {todo}
+                        username = "Sarbsingh"
+                        newusername = "@sarbsingh"
+                        image = "/image22.jpg" />     
 
     </div>
   )
