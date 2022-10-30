@@ -1,53 +1,52 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import {BiArrowBack,BiRepost} from 'react-icons/bi';
-import Datapost from './Datapost';
 import './Middlepart.css';
+import TweetField from './TweetField';
+import NewTweets from './NewTweets';
+import North from '../Components/North.jpg'
 
  function Middlepart() 
  {
-  const [todo,setodo] = useState([]);   
-  const [task,setask] = useState(""); 
+  const [tweetlist,setweetlist] = useState([]);   
+  const [taskval,setaskval] = useState(""); 
 
-  
-     function handleclick()      
-    {  
-        setodo(() => { return task; })       
-        console.log(todo)
-        setask('');
+    const handlechange = (e) =>
+    {
+        setaskval(e.target.value);
+        console.log(taskval);
     }
 
+     function handleclick(e)      
+    {  
+       setaskval('');
+        let arrs = {
+           username : 'king is here',
+           tweet : taskval,
+           image: '/image22.jpg'
+        };
+        setweetlist([arrs,...tweetlist])
+        console.log(taskval);
+    };
+
   return (      
-
+    <>
     <div id = "middlepart-data" style = {{borderRight:'inset'}} >
-            <div className="top-bar" style = {{fontSize:'26px',color:'white',height:'6vh',backgroundColor:'black'}}>
-                    <span> <BiArrowBack /> </span>
-                    <span> Thread </span>
-            </div> 
-
-             <div id = "component-main" style = {{borderBottom:'inset'}}>
-                    <div className = "input-bar-data" style = {{display:'grid',gridTemplateColumns:'80px 1fr',marginLeft:'5%',marginRight:'5%'}}>
-                            <div style = {{paddingTop:'4%'}}> <img src = "/modalimg.jpg"  style = {{width:'60%',borderRadius:'50px',height:'6vh'}}/> 
-                            
-                            </div>
-                            <div style = {{textAlign:'left',alignSelf:'center'}}>
-                                <input type = "text" id = "input-data" placeholder = "Write your First Words.." value = {task}  onChange={(e) => setask(e.target.value)} 
-                                    style = {{padding:'3% 8%'}}
-                                />
-                            </div>
-                    </div>
-
-                    <div style = {{textAlign:'center'}}>
-                      <button id = "btn-tweet" onClick = {handleclick}>  Tweet </button>
-                    </div> 
-             </div>
-
-              <Datapost 
-                        todo   = {todo}
-                        username = "Sarbsingh"
-                        newusername = "@sarbsingh"
-                        image = "/image22.jpg" />     
-
+         <TweetField 
+          onChange = {handlechange}
+          val = {taskval}
+          onClick= {handleclick}
+          image = {North}
+           />
+           {
+             tweetlist.map((item) => (
+                <NewTweets
+                 username = {item.name}
+                 tweet = {item.tweet}
+                 image = {item.image}
+                 />                ))
+           }
     </div>
+    </>
   )
 }
 export default Middlepart
